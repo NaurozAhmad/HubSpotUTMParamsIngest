@@ -31,15 +31,20 @@
             console.log('y', y.document);
             let inputs = y.document.getElementsByClassName('hs-input')
             console.log('utm', inputs);
+            let utm_campaign = localStorage.getItem('utm_campaign').split('-')[0];
+            let utm_guid = localStorage.getItem('utm_campaign').split('-')[1] || '';
             for (var i = 0; i < inputs.length; i++) {
               if (inputs[i].name == 'utm_campaign') {
-                inputs[i].value = localStorage.getItem('utm_campaign');
+                inputs[i].value = utm_campaign;
               }
               if (inputs[i].name == 'utm_source') {
                 inputs[i].value = localStorage.getItem('utm_source');
               }
               if (inputs[i].name == 'utm_medium') {
                 inputs[i].value = localStorage.getItem('utm_medium');
+              }
+              if (inputs[i].name == 'utm_guid') {
+                inputs[i].value = utm_guid;
               }
             }
           }, 1000);
