@@ -4,7 +4,7 @@
   if (urlParams.get('utm_campaign') || urlParams.get('utm_medium') || urlParams.get('utm_source')) {
     console.log('has query params');
     let expires = new Date();
-    expires.setMinutes(expires.getMinutes() + 1440);
+    expires.setMinutes(expires.getMinutes() + 10800);
     console.log('expires', expires);
     localStorage.setItem('utm_source', urlParams.get('utm_source'));
     localStorage.setItem('utm_campaign', urlParams.get('utm_campaign'));
