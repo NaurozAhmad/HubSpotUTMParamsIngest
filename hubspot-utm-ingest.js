@@ -47,10 +47,12 @@
             }
             for (var i = 0; i < inputs.length; i++) {
               if (localStorage.getItem('gclid')) {
+                console.log('adding gclid', localStorage.getItem('gclid'));
                 if (inputs[i].name == 'gclid') {
                   inputs[i].value = localStorage.getItem('gclid');
                 }
               } else {
+                console.log('adding utm params', localStorage.getItem('utm_campaign'));
                 if (inputs[i].name == 'utm_campaign') {
                   inputs[i].value = utm_campaign;
                 }
