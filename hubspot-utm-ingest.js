@@ -51,6 +51,11 @@
             console.log('xhttp response', xhttp.responseText);
             ip = xhttp.responseText.match(ipRegex)[0];
             console.log('got ip', ip);
+            for (var i = 0; i < inputs.length; i++) {
+              if (inputs[i].name == 'ip_address') {
+                inputs[i].value = ip;
+              }
+            }
           }
           const xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = onDataRecieve;
@@ -76,9 +81,6 @@
               }
               if (inputs[i].name == 'utm_guid') {
                 inputs[i].value = !expired ? utm_guid : '';
-              }
-              if (inputs[i].name == 'ip_address') {
-                inputs[i].value = ip;
               }
             }
           }
