@@ -48,7 +48,9 @@
 
           function onDataRecieve() {
             const ipRegex = /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/
+            console.log('xhttp response', xhttp.responseText);
             ip = xhttp.responseText.match(ipRegex)[0];
+            console.log('got ip', ip);
           }
           const xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = onDataRecieve;
