@@ -10,12 +10,14 @@
       localStorage.removeItem('utm_source');
       localStorage.removeItem('utm_campaign');
       localStorage.removeItem('utm_medium');
+      localStorage.removeItem('utm_guid');
       localStorage.setItem('gclid', urlParams.get('gclid'));
     } else {
       localStorage.removeItem('gclid');
       localStorage.setItem('utm_source', urlParams.get('utm_source'));
       localStorage.setItem('utm_campaign', urlParams.get('utm_campaign'));
       localStorage.setItem('utm_medium', urlParams.get('utm_medium'));
+      localStorage.setItem('utm_guid', urlParams.get('utm_guid'));
     }
     localStorage.setItem('expiry', expires);
   }
@@ -43,7 +45,7 @@
           let ip = '';
           if (localStorage.getItem('utm_campaign')) {
             utm_campaign = localStorage.getItem('utm_campaign').split('-')[0];
-            utm_guid = localStorage.getItem('utm_campaign').split('-')[1] || '';
+            utm_guid = localStorage.getItem('utm_guid') || (localStorage.getItem('utm_campaign').split('-')[1] || '');
           }
 
           function onDataRecieve() {
